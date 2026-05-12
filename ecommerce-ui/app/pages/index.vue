@@ -35,7 +35,7 @@
 <script lang="ts" setup>
 //@ts-nocheck
 const config = useRuntimeConfig();
-const product = ref([])
+const products = ref([])
 
 // fetch preloadRouteComponents
 async function fetchProducts () {
@@ -44,7 +44,7 @@ async function fetchProducts () {
       baseURL: "http://localhost:1337",
     });
     console.log(response.data);
-    product.value = response.data
+    products.value = response.data
   }catch (err){
     console.error("Failed to load Products")
   }
@@ -56,7 +56,7 @@ async function fetchProducts () {
 // remove from cart 
 
 onMounted(() => {
-  fetchProducts
+  fetchProducts()
 })
 
 </script>
