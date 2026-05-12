@@ -1,5 +1,6 @@
 <template>
   <v-container>
+
     <v-app-bar color="grey"></v-app-bar>
 
     <v-row>
@@ -20,7 +21,7 @@
         </v-img>
 
         <v-card-title>Mouse</v-card-title>
-        <v-caed-text>1500</v-caed-text>
+        <v-caed-text>₱ 1500</v-caed-text>
         <c-card-action>
           <v-btn color="black" variant="flat" block>Add to Cart</v-btn>
         </c-card-action>
@@ -32,6 +33,30 @@
 </template>
 
 <script lang="ts" setup>
+const config = useRuntimeConfig();
+
+// fetch preloadRouteComponents
+async function fetchProduct () {
+  try{
+    const response = await $fetch("/api/product", {
+      baseURL: "http://localhost:1337"
+    });
+
+    console.log(response.data);
+
+  }catch (err){
+    console.error("Failed to load Products")
+  }
+}
+// add to cart 
+
+// submit order 
+
+// remove from cart 
+
+onMounted(() => {
+  fetchProduct
+})
 
 </script>
 

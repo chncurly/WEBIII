@@ -14,4 +14,10 @@ export default defineNuxtConfig({
       },
     },
   },
+
+  runtimeConfig: {
+    public: {
+      baseUrl: "http://localhost:1337",
+    },
+  },
 })
